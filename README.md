@@ -25,7 +25,7 @@ Welcome to the Bingo Game! This is a simple console-based game where players can
 - Colorama: Python library used for adding color to the console output.
 
 ## Contributors
-- [AromalShaji]([https://github.com/AromalShaji/]): Developer of the game.
+- [AromalShaji](https://github.com/AromalShaji): Developer of the game.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
