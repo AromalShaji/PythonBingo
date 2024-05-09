@@ -15,7 +15,10 @@ Welcome to the Bingo Game! This is a simple console-based game where players can
    - Enter the number of users playing the game.
    - Players take turns marking numbers on their Bingo cards until a player achieves Bingo.
    - The game will indicate when a player wins, and you can choose to play again or exit.
-   
+
+## Screenshots
+![Bingo Game Screenshot](image.png)
+
 ## Files
 - `bingo_game.py`: The main Python script containing the Bingo game implementation.
 - `README.md`: This file, providing instructions and information about the game.
