@@ -17,7 +17,7 @@ Welcome to the Bingo Game! This is a simple console-based game where players can
    - The game will indicate when a player wins, and you can choose to play again or exit.
 
 ## Screenshots
-![Bingo Game Screenshot](image.png)
+![Bingo Game Screenshot](https://github.com/AromalShaji/PythonBingo/blob/main/Image.PNG)
 
 ## Files
 - `bingo_game.py`: The main Python script containing the Bingo game implementation.
