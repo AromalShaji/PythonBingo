@@ -50,14 +50,22 @@ def mark_number_in_all_cards(users_cards, number):
             for j in range(5):
                 if card[i][j] == number:
                     card[i][j] = 'X'
-                    return  # Only mark one occurrence of the number per card
 
 def main():
     init()  # Initialize colorama
     clear_screen()
     print("Welcome to Bingo Game!")
     while True:
-        num_users = int(input("Enter the number of users: "))
+        # Ask for a valid number of users input from the user
+        while True:
+            try:
+                num_users = int(input("Enter the number of users: "))
+                if num_users > 0:
+                    break
+                else:
+                    print("Please enter a number greater than 0.")
+            except ValueError:
+                print("Please enter a valid number.")
 
         # Generate bingo cards for each user
         users_cards = [generate_bingo_card() for _ in range(num_users)]
@@ -74,7 +82,16 @@ def main():
                 print(f"\nUser {user_idx + 1}, it's your turn!")
                 input("Press Enter to continue...")
 
-                chosen_number = int(input("\nEnter the number you want to mark (1-25): "))
+                # Ask for a valid number input from the user
+                while True:
+                    try:
+                        chosen_number = int(input("\nEnter the number you want to mark (1-25): "))
+                        if 1 <= chosen_number <= 25:
+                            break
+                        else:
+                            print("Please enter a number between 1 and 25.")
+                    except ValueError:
+                        print("Please enter a valid number.")
 
                 # Mark the chosen number in all cards
                 mark_number_in_all_cards(users_cards, chosen_number)
@@ -93,7 +110,7 @@ def main():
                 else:
                     continue
                 break
-                    
+
             else:
                 continue
             break
@@ -105,3 +122,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
