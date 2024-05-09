@@ -39,16 +39,13 @@ def print_bingo_card(card, chosen_number=None, current_user_idx=None):
 def check_bingo(card):
     # Check rows
     rows = [all(cell == 'X' for cell in row) for row in card]
-    print("row : ",rows)
+    # print("row : ",rows)
     # Check columns
     cols = [all(card[j][i] == 'X' for j in range(5)) for i in range(5)]
-    print("col : ", cols)
+    # print("col : ", cols)
     # Check if any row or column has all X's
     row_bingo = sum(rows) >= 4
     col_bingo = sum(cols) >= 4
-
-    print("row_bingo",row_bingo)
-    print("col_bingo",col_bingo)
     
     return row_bingo or col_bingo
 
