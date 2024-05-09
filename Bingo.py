@@ -1,5 +1,3 @@
-# Install this before run ---> pip install colorama
-
 import random
 import os
 from colorama import init, Fore, Style
@@ -40,30 +38,10 @@ def check_bingo(card):
     rows = [all(cell == 'X' for cell in row) for row in card]
     # Check columns
     cols = [all(card[j][i] == 'X' for j in range(5)) for i in range(5)]
-    # Check diagonals
-    diagonals = [all(card[i][i] == 'X' for i in range(5)), all(card[i][4-i] == 'X' for i in range(5))]
-    return rows, cols, diagonals
-
-def update_title_letters(title, rows, cols):
-    print("Rows:", rows)
-    print("Cols:", cols)
-    if all(rows) or all(cols):
-        for i, row_complete in enumerate(rows):
-            print("Row", i, "Complete:", row_complete)
-            if row_complete:
-                if i < len(title):
-                    title[i] = 'X'
-        for i, col_complete in enumerate(cols):
-            print("Col", i, "Complete:", col_complete)
-            if col_complete:
-                if i < len(title):
-                    title[i + 5] = 'X'
-        if all(rows):
-            title[0] = 'X'
-        if all(cols):
-            title[1] = 'X'
-    print("Updated Title:", title)
-    return title
+    # Check if any row or column has all X's
+    row_bingo = sum(rows) >= 5
+    col_bingo = sum(cols) >= 5
+    return row_bingo or col_bingo
 
 
 def mark_number_in_all_cards(users_cards, number):
@@ -72,7 +50,7 @@ def mark_number_in_all_cards(users_cards, number):
             for j in range(5):
                 if card[i][j] == number:
                     card[i][j] = 'X'
-
+                    return  # Only mark one occurrence of the number per card
 
 def main():
     init()  # Initialize colorama
@@ -83,8 +61,6 @@ def main():
 
         # Generate bingo cards for each user
         users_cards = [generate_bingo_card() for _ in range(num_users)]
-        # Initialize title letters
-        title = ['B', 'I', 'N', 'G', 'O']
 
         # Reveal all users' bingo cards
         print("\nRevealing all users' bingo cards:")
@@ -111,9 +87,7 @@ def main():
 
                 # Check if anyone has bingo
                 for idx, card in enumerate(users_cards):
-                    rows, cols, diagonals = check_bingo(card)
-                    title = update_title_letters(title, rows, cols)
-                    if all(cell == 'X' for cell in title):
+                    if check_bingo(card):
                         print(f"\nBingo! User {idx + 1} wins!")
                         break
                 else:
