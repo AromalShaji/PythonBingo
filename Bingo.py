@@ -81,6 +81,12 @@ def check_bingo(card):
 
     # print("ttl ", sum(rows) + sum(rows))
 
+    diag1 = all(card[i][i] == 'X' for i in range(5))
+    diag2 = all(card[i][4-i] == 'X' for i in range(5))
+
+    print(diag1)
+    print(diag2)
+
     return sum(rows) + sum(rows) >=5
 
 def mark_number_in_all_cards(users_cards, number):
