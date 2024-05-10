@@ -67,8 +67,8 @@ def check_bingo(card):
     # Check columns
     cols = [all(card[j][i] == 'X' for j in range(5)) for i in range(5)]
     # Check if any row or column has all X's
-    # print("rows", rows)
-    # print("cols", cols)
+    print("rows", rows)
+    print("cols", cols)
 
     # print("sum(rows)", sum(rows))
     # print("sum(cols)", sum(cols))
@@ -84,10 +84,12 @@ def check_bingo(card):
     diag1 = all(card[i][i] == 'X' for i in range(5))
     diag2 = all(card[i][4-i] == 'X' for i in range(5))
 
-    print(diag1)
-    print(diag2)
+    # print("1",diag1)
+    # print("2",diag2)
 
-    return sum(rows) + sum(rows) >=5
+    # print("dig ttl: ", int(diag1) + int(diag2))
+
+    return sum(rows) + sum(rows) + int(diag1) + int(diag2) >=5
 
 def mark_number_in_all_cards(users_cards, number):
     for card in users_cards:
