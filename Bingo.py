@@ -67,29 +67,29 @@ def check_bingo(card):
     # Check columns
     cols = [all(card[j][i] == 'X' for j in range(5)) for i in range(5)]
     # Check if any row or column has all X's
-    # print("rows", rows)
-    # print("cols", cols)
-
-    # print("sum(rows)", sum(rows))
-    # print("sum(cols)", sum(cols))
+    # print("------------------------------------------")
+    # print("rows :", rows)
+    # print("cols :", cols)
+    # print("sum(rows) :", sum(rows))
+    # print("sum(cols) :", sum(cols))
 
     row_bingo = sum(rows) >= 5
     col_bingo = sum(cols) >= 5
 
-    # print("row_bingo", row_bingo)
-    # print("col_bingo", col_bingo)
-
-    # print("ttl ", sum(rows) + sum(rows))
+    # print("row_bingo :", row_bingo)
+    # print("col_bingo :", col_bingo)
+    # print("r&c ttl :", sum(rows) + sum(cols))
 
     diag1 = all(card[i][i] == 'X' for i in range(5))
     diag2 = all(card[i][4-i] == 'X' for i in range(5))
 
-    # print("1",diag1)
-    # print("2",diag2)
-
+    # print("dig1 :",diag1)
+    # print("dig2 :",diag2)
     # print("dig ttl: ", int(diag1) + int(diag2))
+    # print("ttl : ", sum(rows) + sum(cols) + int(diag1) + int(diag2))
+    # print("--------------------------------------------")
 
-    return sum(rows) + sum(rows) + int(diag1) + int(diag2) >=5
+    return sum(rows) + sum(cols) + int(diag1) + int(diag2) >=5
 
 def mark_number_in_all_cards(users_cards, number):
     for card in users_cards:
