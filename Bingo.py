@@ -67,19 +67,21 @@ def check_bingo(card):
     # Check columns
     cols = [all(card[j][i] == 'X' for j in range(5)) for i in range(5)]
     # Check if any row or column has all X's
-    print(rows)
-    print(cols)
+    print("rows", rows)
+    print("cols", cols)
 
-    print(sum(rows))
-    print(sum(cols))
+    print("sum(rows)", sum(rows))
+    print("sum(cols)", sum(cols))
 
     row_bingo = sum(rows) >= 5
     col_bingo = sum(cols) >= 5
 
-    print(row_bingo)
-    print(col_bingo)
+    print("row_bingo", row_bingo)
+    print("col_bingo", col_bingo)
 
-    return row_bingo or col_bingo
+    print("ttl ", sum(rows) + sum(rows))
+
+    return sum(rows) + sum(rows) >=5
 
 def mark_number_in_all_cards(users_cards, number):
     for card in users_cards:
@@ -153,10 +155,10 @@ def main():
                     print_bingo_card(card)
 
                 # Check if anyone has bingo
-                row_sum, col_sum = check_bingo(users_cards[user_idx])
-                if row_sum >= 5 or col_sum >= 5:
-                    print(f"\nBingo! User {user_idx + 1} wins!")
-                    break
+                for idx, card in enumerate(users_cards):
+                    if check_bingo(card):
+                        print(f"\nBingo! User {idx + 1} wins!")
+                        break
                 else:
                     continue
                 break
