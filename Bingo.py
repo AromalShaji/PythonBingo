@@ -67,8 +67,8 @@ def check_bingo(card):
     # Check columns
     cols = [all(card[j][i] == 'X' for j in range(5)) for i in range(5)]
     # Check if any row or column has all X's
-    print("rows", rows)
-    print("cols", cols)
+    # print("rows", rows)
+    # print("cols", cols)
 
     # print("sum(rows)", sum(rows))
     # print("sum(cols)", sum(cols))
