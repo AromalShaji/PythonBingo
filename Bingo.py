@@ -1,3 +1,7 @@
+
+# Install this before run ---> pip install colorama
+
+
 import random
 import os
 from colorama import init, Fore, Style
