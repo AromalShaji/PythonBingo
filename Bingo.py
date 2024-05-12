@@ -1,5 +1,5 @@
 
-# Install this before run ---> pip install colorama
+# pip install colorama
 
 
 import random
